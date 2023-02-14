@@ -1,2 +1,3 @@
 #!/bin/bash
-Name="BEST" ; Value="School"
+local Name="BEST" ; Value="School"
+
