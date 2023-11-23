@@ -16,4 +16,6 @@ do
     else
     echo $v
     fi
+
+    ((v++))
 done
