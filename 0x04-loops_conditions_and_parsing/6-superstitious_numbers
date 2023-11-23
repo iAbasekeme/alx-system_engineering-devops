@@ -7,14 +7,13 @@ v=1
 y=21
 while [ $v -ne $y ]
 do    
+    echo $v
     if [ $v -eq 4 ];then
     echo "bad luck from China"
     elif [ $v -eq 9 ];then
     echo "bad luck from Japan"
     elif [ $v -eq 17 ];then
     echo "bad luck from Italy"
-    else
-    echo $v
     fi
 
     ((v++))
