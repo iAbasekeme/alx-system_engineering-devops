@@ -3,7 +3,7 @@
 i=1
 v=11
 text="Best School"
-until [ $i -ne $v ];
+until [ $i -ge $v ];
 do
 	echo "$text";
 	((i++))
