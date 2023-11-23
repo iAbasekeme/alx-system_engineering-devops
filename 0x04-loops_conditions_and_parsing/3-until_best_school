@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A Bash script that displays Best School 10 times.
+i=1
+text="Best School"
+until [ $i -ne 11 ];
+do
+	echo "$text";
+	((i++))
+done
