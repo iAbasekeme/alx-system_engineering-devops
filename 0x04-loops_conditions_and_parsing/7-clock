@@ -3,14 +3,11 @@
 # display hours from 0 to 12
 # display minutes from 1 to 59
 H=0
-E=13
-while [ $H -ne $E ]
-do
+while [ $H -ne 13 ]; do
     echo "Hour: $H"
-    M=1
-    EM=60
-    while [ $M -ne $EM ]
-    do 
+    
+    M=1    
+    while [ $M -ne 60 ]; do 
         echo "$M"
         ((m++))
     done
