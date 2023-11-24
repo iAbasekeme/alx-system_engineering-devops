@@ -8,12 +8,15 @@ y=21
 while [ $v -ne $y ]; do
     case $v in
         4)
+            echo "$v"
             echo "bad luck from China"
             ;;
         9)
+            echo "$v"
             echo "bad luck from Japan"
             ;;
         17)
+            echo "$v"
             echo "bad luck from Italy"
             ;;
         *)
