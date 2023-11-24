@@ -5,16 +5,19 @@
 # displays 17 and then bad luck from Italy for the 17th loop iteration
 v=1
 y=21
-while [ $v -ne $y ]
-do    
-    echo $v
-    if [ $v -eq 4 ];then
-    echo "bad luck from China"
-    elif [ $v -eq 9 ];then
-    echo "bad luck from Japan"
-    elif [ $v -eq 17 ];then
-    echo "bad luck from Italy"
-    fi
-
+while [ $v -ne $y ]; do
+    case $v in
+        4)
+            echo "bad luck from China"
+            ;;
+        9)
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo "$v"
+    esac
     ((v++))
 done
