@@ -5,11 +5,11 @@
 H=0
 E=13
 M=1
-EM=59
+EM=60
 while [ $H -ne $E ]
 do
     echo "Hour: $H"
-    while [ $M -gt $EM ]
+    while [ $M -ne $EM ]
     do 
         echo "$M"
         ((m++))
