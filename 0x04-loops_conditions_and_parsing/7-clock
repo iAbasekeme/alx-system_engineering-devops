@@ -5,11 +5,11 @@
 H=0
 while [ $H -ne 13 ]; do
     echo "Hour: $H"
-    
+
     M=1    
     while [ $M -ne 60 ]; do 
         echo "$M"
-        ((m++))
+        ((M++))
     done
 
     ((H++))
