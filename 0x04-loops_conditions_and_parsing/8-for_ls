@@ -2,4 +2,5 @@
 # A Bash script that displays:
 # The content of the current directory
 # In a list format
-# Where only the part of the name after the first dash is displayed 
+# Where only the part of the name after the first dash is displayed
+ls -l .| awk '{print $9}' | cut --complement -d "-" -f 1
