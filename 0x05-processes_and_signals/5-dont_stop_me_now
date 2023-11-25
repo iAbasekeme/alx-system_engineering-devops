@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # A Bash script that stops 4-to_infinity_and_beyond process.
 pid=$!
-
-kill -9 "$pid"
+sleep 4
+echo "PID: $pid"
+kill -9 '$pid'
