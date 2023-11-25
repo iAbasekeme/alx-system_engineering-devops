@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# A script used to display all processes running currently
 ps aux
