@@ -3,4 +3,4 @@
 pid=$!
 sleep 4
 echo "PID: $pid"
-kill -9 '$pid'
+kill -9 "$pid"
