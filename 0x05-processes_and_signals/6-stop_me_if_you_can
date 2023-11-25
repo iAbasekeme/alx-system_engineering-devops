@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # A Bash script that stops 4-to_infinity_and_beyond process.
 
-process_name=$(pgrep 4-to_infinity_and_beyond)
+process_name=$(pgrep "4-to_infinity_and_beyond")
 
 sleep 5
-pkill -9 -f "$process_name"
+pkill -f "$process_name"
