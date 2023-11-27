@@ -3,6 +3,11 @@
 # To infinity and beyond indefinitely
 # With a sleep 2 in between each iteration
 # I am invincible!!! when receiving a SIGTERM signal
+terminate() {
+    echo "I am invincible!!!"
+    exit 0
+}
+trap terminate SIGTERM
 
 while true; do
     echo "To infinity and beyond"
