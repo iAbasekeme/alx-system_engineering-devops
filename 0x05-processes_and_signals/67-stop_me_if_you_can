@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # A Bash script that stops 4-to_infinity_and_beyond process.
+trap "echo "I am invicible!!!"" SIGTERM
 file="7-highlander"
 process_name=$(pgrep -f "$file")
 sleep 5
-echo "I am invicible!!!"
 pkill -15 "$process_name"
