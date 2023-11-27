@@ -3,8 +3,5 @@
 file="7-highlander"
 process_name=$(pgrep "$file")
 sleep 5
-if [ -n "$file" ];
-then
-    echo "I am invicible!!!"	
-    pkill -15 "$process_name"
-fi
+echo "I am invicible!!!"	
+pkill -15 "$process_name"
