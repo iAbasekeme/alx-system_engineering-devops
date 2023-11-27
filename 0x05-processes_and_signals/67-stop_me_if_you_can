@@ -3,4 +3,4 @@
 file="7-highlander"
 process_name=$(pgrep "$file")
 sleep 5
-pkill -15 "$process_name"
+pkill -TERM "$process_name" 2>/dev/null
