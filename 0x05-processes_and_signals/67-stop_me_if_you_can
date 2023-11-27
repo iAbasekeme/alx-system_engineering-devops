@@ -5,6 +5,6 @@ process_name=$(pgrep "$file")
 sleep 5
 if [ -n "$file" ];
 then
-    pkill -signal -15 "$process_name"
+    pkill -15 "$process_name"
     echo "I am invincible!!!"
 fi
