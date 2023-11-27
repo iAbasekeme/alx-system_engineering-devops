@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # A Bash script that stops 4-to_infinity_and_beyond process.
 file="7-highlander"
-process_name=$(pgrep -f "$file")
-if [ -n "$process_name" ]; then    
-    pkill -15 "$process_name"
-fi
+process_name=$(pgrep "$file")
+sleep 5
+pkill -f "$process_name"
