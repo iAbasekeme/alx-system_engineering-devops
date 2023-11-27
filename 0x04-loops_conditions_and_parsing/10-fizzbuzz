@@ -4,7 +4,7 @@ param=101
 s=1
 while [ "$s" -ne "$param" ];
 do
-    if [ $((s % 3)) -eq 0 ] || [ $((s % 5)) -eq 0 ]; then
+    if [ $((s % 3)) -eq 0 ] && [ $((s % 5)) -eq 0 ]; then
     echo "FizzBuzz"
     elif [ $((s % 3)) -eq 0 ]; then
     echo "Fizz"
