@@ -53,6 +53,19 @@ Monitoring tools often use a combination of these methods to provide a comprehen
 The collected data is then analyzed, aggregated, and presented through dashboards, alerts, and reports to help administrators make 
 informed decisions and take timely actions.
 
+----------------------------------------------------------------------
+Issues with the Infrastructure:
+1. Terminating SSL at the Load Balancer Level:
+This approach means that the traffic between the load balancer and backend servers is unencrypted, introducing a potential security risk.
+
+2. Single MySQL Server Accepting Writes:
+Having only one MySQL server capable of accepting writes creates a single point of failure for write operations. 
+Consider setting up multiple write-capable nodes or using advanced database clustering solutions.
+
+3. Identical Components on Servers:
+Having servers with identical components (database, web server, application server) might be a problem for scalability and fault tolerance.
+
+
 
 
 
