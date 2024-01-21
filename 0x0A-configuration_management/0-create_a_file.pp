@@ -1,9 +1,8 @@
 # A simple resource in puppet
-file {'Abas':
-  path: '/tmp/school'
+file {'':
   ensure: file
   owner: www-data
   group: www-data
   mode: 0744
-  content => $'I love Puppet'
+  content => "I love Puppet"
 }
