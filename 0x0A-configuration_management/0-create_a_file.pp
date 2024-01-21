@@ -1,5 +1,5 @@
 # A simple resource in puppet
-file {'':
+file { '/tmp/school':
   ensure: file
   owner: www-data
   group: www-data
