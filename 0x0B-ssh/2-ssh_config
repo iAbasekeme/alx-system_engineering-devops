@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# A file that configures an SSH configuration file
+sudo nano /etc/ssh/sshd_config
+PasswordAuthentication no
+PubkeyAuthentication yes
