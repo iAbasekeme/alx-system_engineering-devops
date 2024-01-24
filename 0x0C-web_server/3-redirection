@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Install nginx on your web-01
+
+# Update package information then install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# enabe the most restrictive profile that will allow the traffic
+sudo ufw allow 'Nginx HTTP'
+# pass the content
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+#start nginx
+ sudo service nginx start
+#redirect
+new_content="rewrite ^\/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+
+# Use a more specific sed command to replace the desired location
+sudo sed -i "/server_name _;/a $new_content" /etc/nginx/sites-available/default
+
+# Test Nginx configuration and restart
+sudo nginx -t && sudo service nginx restart
