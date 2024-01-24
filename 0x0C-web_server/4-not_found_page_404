@@ -1,31 +1,15 @@
 #!/usr/bin/env bash
-# Install nginx on your web-01
-
-# Update package information then install Nginx
-sudo apt-get -y update
-sudo apt-get -y install nginx
-
-# Enable the most restrictive profile that will allow the traffic
-sudo ufw allow 'Nginx HTTP'
-
-# Pass the content
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-
-# Start Nginx
-sudo service nginx start
-
-# Redirect
-new_content="rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-
-# Use a more specific sed command to replace the desired location
-sudo sed -i "/server_name _;/a $new_content" /etc/nginx/sites-available/default
-
-# Customize the 404 page
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
-
-new_error="listen 80 default_server;\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
-
-sudo sed -i "/listen 80 default_server;/c $new_error" /etc/nginx/sites-available/default
-
-# Test Nginx configuration and restart
-sudo nginx -t && sudo service nginx restart
+# Docs
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        location /redirect_me {
+                 return 301 https://www.youtube.com/watch?v=3lFkDc6dFoY;
+        }"
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                 root /var/www/html;
+                 internal;
+        }"
+sudo service nginx restart
