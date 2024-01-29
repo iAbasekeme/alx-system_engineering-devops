@@ -11,6 +11,9 @@ sudo apt-get -y install nginx
 # enabe the most restrictive profile that will allow the traffic
 sudo ufw allow 'Nginx HTTP'
 
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une error_page" > /usr/share/nginx/html/custom_404.html
 echo "server {
