@@ -4,7 +4,6 @@
 # Install nginx on your web-01
 
 # Update package information then install Nginx
-server_name=$(hostname)
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
@@ -40,7 +39,7 @@ echo "server {
         return 301 https://www.youtube.com/watch?v=3lFkDc6dFoY;
     }
 
-    add_header X-Served-By $server_name;
+    add_header X-Served-By $hostname;
 }
 " > /etc/nginx/sites-enabled/default
 
