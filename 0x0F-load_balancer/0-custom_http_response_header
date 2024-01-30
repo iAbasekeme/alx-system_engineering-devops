@@ -61,7 +61,8 @@ server_config=\
 		root /var/www/html;
 		index index.html index.htm index.nginx-debian.html
 		server_name_;
-		add_header X-Served-By \$hostname;
+		# shellcheck disable=SC2154
+		add_header X-Served-By $hostname;
 		location / {
 			try_files \$uri \$uri/ =404;
 		}
