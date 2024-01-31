@@ -21,23 +21,12 @@ defaults
 
 frontend http_front
     bind *:80
-    default_backend http_back
+    default_backend servers
 
-backend http_back
+backend servers
     balance roundrobin
     server 151666-web-01 18.214.87.3:80 check
     server 151666-web-02 54.237.61.25:80 check
 "
-# shellcheck disable=SC2154
-echo "$server_config" | sudo dd status=none of=/etc/haproxy/haproxy.cfg
-
-# enable haproxy to be started by init script
-echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
-
-echo "configured - Roundrobin On web-01 & web-02"
-
-if [ "$(pgrep -c haproxy)" -le 0 ]; then
-	sudo service haproxy start
-else
-	sudo service haproxy restart
-fi
+sudo systemctl enable haproxy
+sudo systemctl restart haproxy
