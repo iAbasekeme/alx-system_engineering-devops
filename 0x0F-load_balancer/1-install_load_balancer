@@ -19,11 +19,11 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend tadicodes-tech-frontend
+frontend http_front
     bind *:80
-    default_backend tadicodes-tech-backend
+    default_backend http_back
 
-backend tadicodes-tech-backend
+backend http_back
     balance roundrobin
     server 151666-web-01 18.214.87.3:80 check
     server 151666-web-02 54.237.61.25:80 check
