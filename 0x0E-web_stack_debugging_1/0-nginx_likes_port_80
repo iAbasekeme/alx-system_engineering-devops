@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Docs
+config="
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+"
+echo "$config" > /etc/nginx/sites-enabled/default
+service nginx restart
