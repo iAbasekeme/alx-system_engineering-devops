@@ -31,8 +31,9 @@ frontend http_front
 
 backend servers
     balance roundrobin
-    server 277540-web-01 18.214.87.3:80 check port 80
-    server 277540-web-02 54.237.61.25:80 check port 80
+    server 277540-web-01 18.214.87.3:80 check
+    server 277540-web-02 54.237.61.25:80 check
 EOL
+sudo systemctl start haproxy
 sudo systemctl enable haproxy
 sudo systemctl restart haproxy
