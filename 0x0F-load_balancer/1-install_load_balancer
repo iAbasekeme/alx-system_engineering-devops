@@ -7,7 +7,7 @@ sudo apt-get -y install haproxy
 # Make a backup of the configuration file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 
-sudo tee /etc/haproxy/haproxy.cfg >/dev/null <<EOL
+sudo tee /etc/haproxy/haproxy.cfg.bak >/dev/null <<EOL
 global
     log /dev/log    local0
     log /dev/log    local1 notice
