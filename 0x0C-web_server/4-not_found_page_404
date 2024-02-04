@@ -36,4 +36,4 @@ sudo sed -i '12i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/de
 # Restarting nginx
 sudo service nginx restart
 
-echo -e "\nCompleted.\n"
+exit 0
