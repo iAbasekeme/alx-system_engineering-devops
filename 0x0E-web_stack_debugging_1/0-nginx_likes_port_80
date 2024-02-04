@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
-# Docs
-config="
-server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+# debugging server
 
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name _;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-}
-"
-echo "$config" > /etc/nginx/sites-enabled/default
-service nginx restart
+# Check if Nginx is already installed
+if command -v nginx &> /dev/null; then
+    echo "Nginx is already installed. Skipping installation."
+    rm /etc/nginx/sites-enabled/default
+    ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+else
+    # Install Nginx
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+fi
+# restart
+sudo service nginx restart
