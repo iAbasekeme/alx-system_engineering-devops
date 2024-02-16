@@ -8,4 +8,6 @@ sudo chmod 0644 /etc/nginx/nginx.conf
 
 sudo sed -i "s/80 default_server/8080 default_server/"  /etc/nginx/sites-available/default
 
+pkill apache2
+
 sudo -u nginx service nginx restart
