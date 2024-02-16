@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 # A script that checks for the identity of the current user
-sudo -u $1 whoami
+user=$1
+if [ "$(id -u $user)" -ne 0 ]; then
+        command_to_run="sudo whoami"
+else
+        command_to_run="whoami"
+fi
+$command_to_run
