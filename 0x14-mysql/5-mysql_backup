@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#!/bin/bash
+
+PASSWORD=$1
+
+# Create the backup file name with the current date
+BACKUP_FILE="backup.sql"
+BACKUP_ARCHIVE=$(date +"%Y-%m-%d").tar.gz
+
+# Create the backup file using mysqldump
+mysqldump --user=root --password="$PASSWORD" --all-databases > "$BACKUP_FILE"
+
+# Compress the backup file using gzip
+gzip "$BACKUP_FILE"
+
+# Move the compressed backup file to the desired location
+mv "$BACKUP_FILE.gz" "${BACKUP_ARCHIVE}"
+
+echo "Backup completed successfully: ${BACKUP_ARCHIVE}"
