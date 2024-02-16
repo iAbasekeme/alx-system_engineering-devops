@@ -7,6 +7,8 @@ sudo chown -R nginxuser:nginxuser /var/lib/nginx
 
 sudo sed -i "s/#user www-data;/user nginxuser;/" /etc/nginx/nginx.conf
 
+sudo chmod 0644 /etc/nginx/nginx.conf
+
 sudo sed -i "s/80 default_server/8080 default_server/"  /etc/nginx/sites-available/default
 
 sudo systemctl restart nginx
