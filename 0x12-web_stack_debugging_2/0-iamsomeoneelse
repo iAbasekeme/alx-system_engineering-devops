@@ -4,6 +4,6 @@ user=$1
 if [ "$(id -u "$user")" -ne 0 ]; then
         command_to_run="sudo -u $user whoami"
 else
-        command_to_run="whoami"
+        command_to_run="whoami $user"
 fi
 $command_to_run
