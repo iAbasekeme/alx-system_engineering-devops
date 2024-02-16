@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A script that makes a non-root user a user in nginx.
+sudo adduser nginxuser
+sudo sed -i "s/#user www-data/user nginxuser/" /etc/nginx/nginx.conf
+sudo sed -i "s/80 default_server/8080 default_server/"  /etc/nginx/sites-available/default
+pkill apache2
+sudo -u nginx service nginx restart
