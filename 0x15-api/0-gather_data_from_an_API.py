@@ -37,4 +37,4 @@ if __name__ == '__main__':
 
     for dat in data:
         if dat['completed'] == True:
-            print('\t {}'.format(dat[title]))
+            print('\t {}'.format(dat['title']))
