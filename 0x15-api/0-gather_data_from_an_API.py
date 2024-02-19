@@ -5,27 +5,32 @@ returns information about his/her TODO list progress.
 from sys import argv
 import requests
 
-response = requests.get(
-    f'https://jsonplaceholder.typicode.com/users/{argv[1]}')
-if response.status_code == 200:
-    data = response.json()
-print('Employee {} is done with tasks'.format(data['name']))
+if __name__ == '__main__':
+    user_id = argv[1]
+    url_str = 'https://jsonplaceholder.typicode.com/'
+    user_str = '{}users/{}'.format(url_str, user_id)
+    todos_str = '{}users/{}/todos'.format(url_str, user_id,)
+    employee_str = 'Employee {} is done with tasks'
 
-todos_res = requests.get(
-    f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos')
-if response.status_code == 200:
-    data = todos_res.json()
-    count = 0
-    for dat in data:
-        if dat['completed'] == True:
-            count += 1
-    print('({}/'.format(count))
+    response = requests.get(user_str)
+    if response.status_code == 200:
+        data = response.json()
+    print(employee_str.format(data['name']), end="")
 
-total_res = requests.get(f'https://jsonplaceholder.typicode.com/users/2/todos')
-if response.status_code == 200:
-    data = total_res.json()
-    count2 = 0
-    for dat in data:
-        count2 +=1
-    print(count2)
-print('Employee {} is done with tasks ({}/{}'.format(data['name'], count, count2))
+    todos_res = requests.get(todos_str)
+    if response.status_code == 200:
+        data = todos_res.json()
+        count = 0
+        for dat in data:
+            if dat['completed'] == True:
+                count += 1
+        print('({}/'.format(count), end="")
+
+    total_res = requests.get(todos_str)
+    if response.status_code == 200:
+        data = total_res.json()
+        count2 = 0
+        for dat in data:
+            count2 += 1
+        print(count2)
+        print('{}'.format(count2), end="")
