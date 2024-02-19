@@ -33,4 +33,4 @@ if __name__ == '__main__':
         for dat in data:
             count2 += 1
         print(count2)
-        print('{}'.format(count2), end="")
+        print('{})'.format(count2), end="")
