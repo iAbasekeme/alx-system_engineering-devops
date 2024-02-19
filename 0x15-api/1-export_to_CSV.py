@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     res = requests.get(todos_str)
     tasks = []
-    if response.status_code == 200:
+    if res.status_code == 200:
         data = response.json()
         for task in data:
             tasks.append([user_id, username, task['completed'], task['title']])
