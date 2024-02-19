@@ -32,4 +32,4 @@ if __name__ == '__main__':
         count2 = 0
         for dat in data:
             count2 += 1
-        print('{})'.format(count2), end="")
+        print('{})'.format(count2))
