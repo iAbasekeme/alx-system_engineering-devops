@@ -16,7 +16,16 @@ todos_res = requests.get(
 if response.status_code == 200:
     data = todos_res.json()
     count = 0
-    for dat in list(data):
+    for dat in data:
         if dat['completed'] == True:
             count += 1
     print('({}/'.format(count))
+
+total_res = requests.get(f'https://jsonplaceholder.typicode.com/users/2/todos')
+if response.status_code == 200:
+    data = total_res.json()
+    count2 = 0
+    for dat in data:
+        count2 +=1
+    print(count2)
+print('Employee {} is done with tasks ({}/{}'.format(data['name'], count, count2))
