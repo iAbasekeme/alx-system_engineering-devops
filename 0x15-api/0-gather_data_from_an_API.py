@@ -12,6 +12,7 @@ if __name__ == '__main__':
     todos_str = '{}users/{}/todos'.format(url_str, user_id,)
     employee_str = 'Employee {} is done with tasks'
 
+
     response = requests.get(user_str)
     if response.status_code == 200:
         data = response.json()
@@ -33,3 +34,7 @@ if __name__ == '__main__':
         for dat in data:
             count2 += 1
         print('{})'.format(count2))
+
+    for dat in data:
+        if dat['completed'] == True:
+            print('\t {}'.format(dat[title]))
