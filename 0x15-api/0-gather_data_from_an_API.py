@@ -23,7 +23,7 @@ if __name__ == '__main__':
         data = todos_res.json()
         count = 0
         for dat in data:
-            if dat['completed'] == True:
+            if dat['completed'] is True:
                 count += 1
         print('({}/'.format(count), end="")
 
@@ -36,5 +36,5 @@ if __name__ == '__main__':
         print('{})'.format(count2))
 
     for dat in data:
-        if dat['completed'] == True:
+        if dat['completed'] is True:
             print('\t {}'.format(dat['title']))
