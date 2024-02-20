@@ -20,6 +20,7 @@ if __name__ == '__main__':
     res = requests.get(todos_str)
     tasks = []
     data = res.json()
+    print(data)
     for dat in data:
         task_dict = {"task": dat['title'],
                      "completed": dat['completed'], "username": dat['username']}
