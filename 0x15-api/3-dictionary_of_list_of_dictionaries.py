@@ -11,9 +11,9 @@ if __name__ == '__main__':
     user_str = '{}users'.format(url_str)
     todos_str = '{}/todos'.format(url_str)
 
-    res = requests.get(user_str)
-    data = res.json()
-        
+    res = requests.get(user_str).json()
+    for res in users:
+        print(users)
 
     res_todos = requests.get(todos_str)
     data = res_todos.json()
