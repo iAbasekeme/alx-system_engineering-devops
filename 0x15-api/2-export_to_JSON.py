@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     res = requests.get(user_str)
     data = res.json().get('username')
-    data = res.json()
     print(data)
 
     res = requests.get(todos_str)
