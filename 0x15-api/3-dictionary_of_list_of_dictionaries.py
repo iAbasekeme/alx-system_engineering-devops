@@ -7,13 +7,12 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
+    user_id = '{}/users'.format(url_str)
     url_str = 'https://jsonplaceholder.typicode.com/'
     user_str = '{}users/{}'.format(url_str, user_id)
     todos_str = '{}users/{}/todos'.format(url_str, user_id)
     file = '{}.json'.format(user_id)
     username = requests.get(user_str).json()
-
-    user_id = '{}/users'.format(url_str)
 
     res = requests.get(todos_str)
     tasks = []
