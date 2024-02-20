@@ -16,9 +16,11 @@ if __name__ == '__main__':
 
     res = requests.get(todos_str)
     tasks = []
+    task_dict = {}
     data = res.json()
     for dat in data:
         task_dict = {"task": dat['title'],
                      "completed": dat['completed'], "username": username.get('username')}
         tasks.append(task_dict)
-    print(tasks)
+    task_dict[user_id] = tasks
+    print(task_dict)
