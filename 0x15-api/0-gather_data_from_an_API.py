@@ -32,7 +32,7 @@ if __name__ == '__main__':
         count2 = 0
         for dat in data:
             count2 += 1
-        print('{})'.format(count2))
+        print('{}):'.format(count2))
 
     for dat in data:
         if dat['completed'] is True:
