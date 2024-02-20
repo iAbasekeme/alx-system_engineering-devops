@@ -12,6 +12,9 @@ if __name__ == '__main__':
     todos_str = '{}/todos'.format(url_str)
 
     res = requests.get(user_str)
-    if res.status_code == 200:
-        print(res)
-        print(res.content)
+    data = res.json()
+        
+
+    res_todos = requests.get(todos_str)
+    data = res_todos.json()
+    print(data)
