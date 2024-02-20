@@ -12,10 +12,8 @@ if __name__ == '__main__':
     user_str = '{}users/{}'.format(url_str, user_id)
     todos_str = '{}users/{}/todos'.format(url_str, user_id)
     file = '{}.json'.format(user_id)
-
-    res = requests.get(user_str)
-    data = res.json().get('username')
-    print(data)
+    username = requests.get(user_str).json()
+    print(username)
 
     res = requests.get(todos_str)
     tasks = []
@@ -23,6 +21,6 @@ if __name__ == '__main__':
     print(data)
     for dat in data:
         task_dict = {"task": dat['title'],
-                     "completed": dat['completed'], "username": dat['username']}
+                     "completed": dat['completed'], "username": username.get('username')}
         tasks.append(task_dict)
     print(tasks)
