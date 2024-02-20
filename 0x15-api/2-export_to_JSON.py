@@ -13,4 +13,4 @@ if __name__ == '__main__':
     file = '{}.json'.format(user_id)
 
     res = requests.get(user_str)
-    print(res)
+    print(res.content)
