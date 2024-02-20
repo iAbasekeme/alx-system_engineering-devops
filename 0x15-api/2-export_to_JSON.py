@@ -2,6 +2,7 @@
 """ A script that export data in the json format.
 """
 import csv
+import json
 import requests
 from sys import argv
 
@@ -18,4 +19,5 @@ if __name__ == '__main__':
 
     res = requests.get(todos_str)
     data = res.json()
-    print(data)
+    for dat in data:
+        print(data)
