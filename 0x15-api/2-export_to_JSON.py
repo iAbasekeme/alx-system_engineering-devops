@@ -13,12 +13,10 @@ if __name__ == '__main__':
     todos_str = '{}users/{}/todos'.format(url_str, user_id)
     file = '{}.json'.format(user_id)
     username = requests.get(user_str).json()
-    # print(username['username'])
 
     res = requests.get(todos_str)
     tasks = []
     data = res.json()
-    print(data)
     for dat in data:
         task_dict = {"task": dat['title'],
                      "completed": dat['completed'], "username": username.get('username')}
