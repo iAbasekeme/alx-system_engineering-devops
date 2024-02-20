@@ -12,15 +12,15 @@ if __name__ == '__main__':
     todos_str = '{}/todos'.format(url_str)
     first_dict = {}
 
-
     res = requests.get(user_str).json()
-
     res_todos = requests.get(todos_str).json()
     for users in res:
         tasks_list = []
         for todos in res_todos:
             if users['id'] == todos['userId']:
-                task_dict = {"username": users['username'], "task": todos['title'], "completed": todos['completed']}
+                task_dict = {"username": users['username'],
+                             "task": todos['title'],
+                             "completed": todos['completed']}
                 tasks_list.append(task_dict)
         first_dict[users['id']] = tasks_list
     with open('todo_all_employees.json', 'w') as file:
