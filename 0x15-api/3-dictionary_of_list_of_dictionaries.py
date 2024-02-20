@@ -8,18 +8,9 @@ from sys import argv
 
 if __name__ == '__main__':
     url_str = 'https://jsonplaceholder.typicode.com/'
-    user_id = '{}/users'.format(url_str)
-    user_str = '{}users/{}'.format(url_str, user_id)
-    todos_str = '{}users/{}/todos'.format(url_str, user_id)
-    file = '{}.json'.format(user_id)
-    username = requests.get(user_str).json()
+    user_str = '{}users'.format(url_str)
+    todos_str = '{}/todos'.format(url_str)
 
-    res = requests.get(todos_str)
-    tasks = []
-    data = res.json()
-    for dat in data:
-        task_dict = {"task": dat['title'],
-                     "completed": dat['completed'],
-                     "username": username.get('username')}
-        tasks.append(task_dict)
-    print(tasks)
+    res = requests.get(user_str)
+    if res.status_code == 200:
+        print(res)
