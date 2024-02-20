@@ -23,4 +23,7 @@ if __name__ == '__main__':
         tasks.append(task_dict)
     task_dict = {}
     task_dict[user_id] = tasks
-    print(task_dict)
+    # print(task_dict)
+
+    with open(file, 'w') as file:
+        json.dump(task_dict, file)
