@@ -23,6 +23,7 @@ if __name__ == '__main__':
             tasks.append([user_id, username, task['completed'], task['title']])
 
     with open(file, 'w') as file:
-        csv_writer = csv.writer(file, delimiter=',', quotechar='"')
+        csv_writer = csv.writer(file, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_ALL)
         for task in tasks:
             csv_writer.writerow(task)
