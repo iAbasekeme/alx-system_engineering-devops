@@ -14,3 +14,4 @@ if __name__ == '__main__':
     res = requests.get(user_str)
     if res.status_code == 200:
         print(res)
+        print(res.content)
