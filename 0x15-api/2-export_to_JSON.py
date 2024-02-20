@@ -19,7 +19,8 @@ if __name__ == '__main__':
     data = res.json()
     for dat in data:
         task_dict = {"task": dat['title'],
-                     "completed": dat['completed'], "username": username.get('username')}
+                     "completed": dat['completed'],
+                     "username": username.get('username')}
         tasks.append(task_dict)
     task_dict = {}
     task_dict[user_id] = tasks
