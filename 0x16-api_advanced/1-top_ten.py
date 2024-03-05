@@ -19,8 +19,8 @@ def top_ten(subreddit):
 
   try:
     data = response.json()
-    posts = data['data']['titles']
+    posts = data['data']['children']
     for post in posts:
-      print(post)
+      print(post['data']['title'])
   except (KeyError, ValueError):
     return None
