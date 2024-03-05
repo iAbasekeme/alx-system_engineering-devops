@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
       'Accept': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
   }
-  response = requests.get(url, header=headers, allow_redirects=False)
+  response = requests.get(url, headers=header, allow_redirects=False)
   if response.status_code != 200:
     return 0
 
